@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  
+  homeassistant:
+    container_name: homeassistant
+    image: ghcr.io/home-assistant/home-assistant:stable
+    volumes:
+      - "./config:/config"
+      - "/usr/share/zoneinfo/Europe/Madrid:/etc/localtime:ro"
+    restart: unless-stopped
+    privileged: true
+    network_mode: host
